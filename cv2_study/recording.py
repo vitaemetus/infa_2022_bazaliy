@@ -14,3 +14,4 @@ while 1:
     cv2.imshow("record",frame)
     if(cv2.waitKey(1)==ord("q")): break
 cv2.destroyAllWindows()
+'''Imported in main'''

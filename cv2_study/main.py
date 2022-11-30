@@ -2,8 +2,23 @@ import cv2
 import numpy as np
 from PIL import Image
 import mss
-import win32gui
+import win32gui #where we use it?
 import pyautogui
+import pygetwindow as gw
+
+class imcap: #imcap=image capture
+    '''Class for working with image capturing'''
+    def window():
+        ''' Returns BRG(?) screenshot as numpy array '''
+        window_name="Need for Speed™ Most Wanted"
+        fourcc=cv2.VideoWriter_fourcc(*"XVID")
+        fps=30.0
+        win=gw.getWindowsWithTitle(window_name)[0]
+        win.activate()
+        img=pyautogui.screenshot(region=(win.left,win.top,win.width,win.height))
+        return np.array(img)
+
+    
 
 # маска для сглаживания входящей картинки:
 kernel = np.ones((5, 5), 'uint8')
